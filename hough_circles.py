@@ -28,10 +28,9 @@ for fname in images:
     upper_red = np.array([180,255,255]) 
     # Threshold the HSV image to get only blue colors
     mask = cv2.inRange(hsv, lower_red, upper_red)
-    
     circles = cv2.HoughCircles(mask,cv2.cv.CV_HOUGH_GRADIENT,2,10, param1=250,param2=40,minRadius=0,maxRadius=20)
-    
     circles = np.uint16(np.around(circles))
+    
     loc.append(ii)
     loc[ii]=circles[:,:]
     
